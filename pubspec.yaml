@@ -12,7 +12,10 @@ dependencies:
 
   cupertino_icons: ^0.1.2
 
+  cached_network_image: ^1.1.1
+
 dev_dependencies:
+
   flutter_test:
     sdk: flutter
 
