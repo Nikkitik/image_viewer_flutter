@@ -22,9 +22,8 @@ The letter suffixes are as follows:
  */
 
 class PhotoData extends ChangeNotifier {
-  String _flickrURL = "https://farm6.staticflickr.com/";
-  String _flickrLargeFormat = "_b.jpg";
   String _flickrLargeSquareFormat = "_q.jpg";
+
   String _apiKey = '20a3023c3e3df4ec356fd20390bdf7cc';
 
   List<String> _urls = [];
@@ -36,7 +35,8 @@ class PhotoData extends ChangeNotifier {
   void getPhotosFromTag(String tag) async {
     var photoData = await _getData('anime');
 
-    photoData.listPhoto.map((photo) => _urls.add(_getUrlPicture(photo)));
+    _urls = photoData.listPhoto.map((photo) => _getUrlPicture(photo)).toList();
+
     notifyListeners();
   }
 
@@ -51,5 +51,5 @@ class PhotoData extends ChangeNotifier {
   }
 
   String _getUrlPicture(Photo photo) =>
-      '$_flickrURL/${photo.serverName}/${photo.idName}\'_\'${photo.secretName}$_flickrLargeSquareFormat';
+      'https://farm${photo.idFarm}.staticflickr.com//${photo.serverName}/${photo.idName}\_${photo.secretName}$_flickrLargeSquareFormat';
 }
