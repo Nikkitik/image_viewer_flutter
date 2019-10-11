@@ -21,13 +21,15 @@ class Photos {
 class Photo {
   String serverName;
   String idName;
+  int idFarm;
   String secretName;
 
-  Photo({this.idName, this.secretName, this.serverName});
+  Photo({this.idName, this.idFarm, this.secretName, this.serverName});
 
   Photo.fromJson(Map<String, dynamic> json)
       : serverName = json['server'],
         secretName = json['secret'],
+        idFarm = json['farm'],
         idName = json['id'];
 
   Map<String, dynamic> toJson() => <String, dynamic>{

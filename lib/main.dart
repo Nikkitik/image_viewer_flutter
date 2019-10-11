@@ -10,7 +10,7 @@ class ImageViewerApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       child: MaterialApp(
-        home: ImageList(),
+        home: PhotosScreen(),
       ),
       builder: (context) => PhotoData(),
     );
