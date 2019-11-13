@@ -33,7 +33,7 @@ class PhotoData extends ChangeNotifier {
   int get urlCount => _urls.length;
 
   void getPhotosFromTag(String tag) async {
-    var photoData = await _getData('anime');
+    var photoData = await _getData(tag);
 
     _urls = photoData.listPhoto.map((photo) => _getUrlPicture(photo)).toList();
 
